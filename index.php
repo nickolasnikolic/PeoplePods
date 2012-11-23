@@ -141,7 +141,8 @@ Moor::
 run();
 
 function dashboard(  ) {
-	header( "Location: /test/PeoplePods/pods/dashboard/index.php");
+	//header( "Location: /test/PeoplePods/pods/dashboard/index.php");
+	var_dump( $_SERVER );
 	exit;
 }# core_dashboard //needs to go to /PeoplePods/pods/dashboard/index.php	[QSA,L] # core_dashboard
 
@@ -391,6 +392,7 @@ function default404(){
 	//just a test...
 	echo '<h1>I feel your pain.</h1>';
 	echo '<p>and by your pain, I mean I also do not know what page you were seeking.</p>';
+	var_dump( $_SERVER );
 	exit;
 }
 ?>

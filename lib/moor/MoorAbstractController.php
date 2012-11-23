@@ -2,8 +2,6 @@
 /**
  * Built-in Abstract Controller for Moor, a URL Routing/Linking/Controller library for PHP 5
  *
- * *** All valid Controllers must extend MoorAbstractController ***
- *
  * @copyright  Copyright (c) 2010 Jeff Turcotte
  * @author     Jeff Turcotte [jt] <jeff.turcotte@gmail.com>
  * @license    MIT (see LICENSE or bottom of this file)
@@ -11,12 +9,13 @@
  * @link       http://github.com/jeffturcotte/moor
  * @version    1.0.0b4
  */
-class MoorAbstractController {
+abstract class MoorAbstractController extends MoorBaseController
+{
 	/**
-	 * Create an instance to encapsulate all controller logic
-	 *
-	 * @return void
-	 */
+	* Create an instance to encapsulate all controller logic
+	*
+	* @return void
+	*/
 	public function __construct() {
 		call_user_func(array(
 			$this, Moor::getActiveShortMethod()
@@ -29,9 +28,9 @@ class MoorAbstractController {
 // ===========
 
 // Moor - A URL Routing/Linking/Controller library for PHP 5
-// 
+//
 // Copyright (c) 2010 Jeff Turcotte
-// 
+//
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
 // files (the "Software"), to deal in the Software without
@@ -40,10 +39,10 @@ class MoorAbstractController {
 // copies of the Software, and to permit persons to whom the
 // Software is furnished to do so, subject to the following
 // conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 // OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND

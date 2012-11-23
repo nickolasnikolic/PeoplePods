@@ -1,6 +1,8 @@
 <?php
 /**
- * Built-In Action Controller for Moor, a URL Routing/Linking/Controller library for PHP 5
+ * Built-in Base Controller for Moor, a URL Routing/Linking/Controller library for PHP 5
+ *
+ * *** All valid Controllers must extend MoorBaseController ***
  *
  * @copyright  Copyright (c) 2010 Jeff Turcotte
  * @author     Jeff Turcotte [jt] <jeff.turcotte@gmail.com>
@@ -9,50 +11,13 @@
  * @link       http://github.com/jeffturcotte/moor
  * @version    1.0.0b4
  */
-class MoorActionController extends MoorAbstractController  {
-	/**
-	 * Create an instance to encapsulate all controller logic
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-		$this->beforeAction();
-
-		try {
-		    parent::__construct();
-
-		} catch (Exception $e) {
-
-		    $exception = new ReflectionClass($e);
-
-		    while($exception) {
-    		    // pass exceptions to a __catch_ExceptionClass method
-    		    $magic_exception_catcher = "catch" . $exception->getName();
-				if (is_callable(array($this, $magic_exception_catcher))) {
-					call_user_func_array(array($this, $magic_exception_catcher), array($e));
-					break;
-				}
-				$exception = $exception->getParentClass();
-			}
-
- 			if (!$exception) {
-                throw $e;
-            }
-		}
-
-		$this->afterAction();
-	}
-
-	protected function beforeAction() {}
-	protected function afterAction() {}
-}
+class MoorBaseController {}
 
 // ===========
 // = License =
 // ===========
 
 // Moor - A URL Routing/Linking/Controller library for PHP 5
-
 //
 // Copyright (c) 2010 Jeff Turcotte
 //
